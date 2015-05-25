@@ -1,0 +1,16 @@
+hrui:
+  name: "hr.ui"
+  build: ./hr-ui
+  links:
+   - db:mongo
+  ports:
+   - "3000:3000"
+hretl:
+  name: "hr.etl"
+  build: ./hr-etl
+  links:
+   - db:mongo
+  ports:
+   - "8081:8081"
+db:
+  image: mongo

@@ -1,0 +1,12 @@
+extends layout
+
+block content
+
+  h1='NY Engineering Department (hours/week)'
+
+  p Chart here:
+  canvas(id='myChart', width='400', height='400')
+
+  script(type='text/javascript').
+    var data = !{JSON.stringify(activities)};
+  script(src='/js/hr-ui.js')
