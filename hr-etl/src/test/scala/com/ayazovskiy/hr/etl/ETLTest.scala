@@ -42,11 +42,9 @@ class ETLTest extends FeatureSpec with GivenWhenThen with BeforeAndAfterEach {
 
       When("the ETL process is started")
       new ETL(source, target).doETL(Option((row) => {
-        print("==============================================callback==============================================")
         Then("the Target storage must get copy of data")
         assert(target.countAll > 0)
       }))
-      print("==============================================finish==============================================")
     }
   }
 }
