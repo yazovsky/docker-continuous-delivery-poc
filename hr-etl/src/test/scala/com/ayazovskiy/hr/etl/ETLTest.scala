@@ -34,7 +34,7 @@ class ETLTest extends FeatureSpec with GivenWhenThen with BeforeAndAfterEach {
       Given("a configuration is correct")
       val conf: Config = ConfigFactory.load()
       val source: SourceJDBC = new SourceJDBC(conf)
-      val target: TargetMongo = new TargetMongoMock(conf)
+      val target: TargetMongoMock = new TargetMongoMock(conf)
 
       And("a Source storage has data")
       assert(source.select != null)

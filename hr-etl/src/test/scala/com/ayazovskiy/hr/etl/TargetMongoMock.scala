@@ -10,7 +10,7 @@ import scala.concurrent.Future
  * User: ayazovskiy
  * Since MongoDB doesn't provide us in-memory solution for testing purpose,
  * for unit testing purpose I have to write a wrapper around TargetMongo class.
- * It mean that TargetMongo class will have to be tested in scope of integration test suite.
+ * This means that TargetMongo class will have to be tested in scope of integration test suite.
  */
 class TargetMongoMock(conf: Config) extends TargetMongo(conf) {
 
