@@ -3,6 +3,7 @@ package com.ayazovskiy.hr.etl
 import com.typesafe.config.{ConfigFactory, Config}
 import org.slf4j.LoggerFactory
 
+import scala.concurrent.Future
 import scala.util.{Success, Failure}
 
 /**
@@ -16,11 +17,14 @@ class ETL(val source: SourceJDBC, val target: TargetMongo) {
     this(new SourceJDBC(conf), new TargetMongo(conf))
   }
 
-  def doETL() = {
+  def doETL(callback: Option[(AnyRef) => Unit] = None) = {
     logger.info("ETL Started!")
 
-    source.select.map(
-      (row: Map[String, Any]) => target.save(row)
+    source.select.foreach(
+      (row: Map[String, Any]) => {
+        val save: Future[Int] = target.save(row)
+        if (callback.isDefined) save.onComplete(callback.get)
+      }
     )
 
     logger.info("ETL Finished: " + target)

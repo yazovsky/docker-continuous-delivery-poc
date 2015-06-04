@@ -1,10 +1,9 @@
 package com.ayazovskiy.hr.etl
 
-import com.typesafe.config.{ConfigFactory, Config}
+import com.typesafe.config.Config
 
 import scala.collection.mutable.ArrayBuffer
 import scala.concurrent.Future
-
 /**
  *
  * User: ayazovskiy
