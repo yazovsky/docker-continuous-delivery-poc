@@ -1,7 +1,7 @@
 name := "hr-etl"
 
 version := "1.0-SNAPSHOT"
-
+organization := "com.yazovskiy.hr"
 scalaVersion := "2.11.6"
 
 libraryDependencies += "com.sun.jersey" % "jersey-server" % "1.2"
